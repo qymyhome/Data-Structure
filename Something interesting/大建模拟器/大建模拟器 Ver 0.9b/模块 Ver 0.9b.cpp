@@ -167,6 +167,17 @@ int simulate(int ship_num, nNode_ship *ship, nNode_per *num, int times, int time
 	}
 	a = ship->next;
 	b = num->next;
+
+	//首先把相关参数初始化
+	int init;
+	for (init = 0; init < ship_num; init++)
+	{
+		a->LuckyNum = 0;
+		a->flag = 0;
+		a = a->next;
+	}
+	a = ship->next;
+
 	int m, n, o;//建造的循环变量
 	int x, y;//统计的循环变量
 	int single = 0;
