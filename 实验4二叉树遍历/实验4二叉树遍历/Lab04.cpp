@@ -17,7 +17,7 @@ typedef struct stack
 	tree *base;
 }stack;
 
-int nodeID = 0;
+int nodeID;
 
 tree *creatTree(char *input, int num);
 void preorder(tree *t);
@@ -39,7 +39,7 @@ int main(int argc[], char *argv[])
 		scanf_s("%c", &element[i], sizeof(char));
 	}*/
 	scanf_s("%s", &element, 100);
-	nodeID = 0;
+	nodeID = -1;
 	tree *new_tree = creatTree(element, element_num);
 	preorder(new_tree);
 	printf("\n");
