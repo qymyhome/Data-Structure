@@ -11,11 +11,11 @@ typedef struct BiNode
 	struct BiNode *rchild;
 }tree;
 
-typedef struct stack
-{
-	tree *top;
-	tree *base;
-}stack;
+//typedef struct stack
+//{
+//	tree *top;
+//	tree *base;
+//}stack;
 
 int nodeID;
 
@@ -28,16 +28,10 @@ void postorder(tree *t);
 
 int main(int argc[], char *argv[])
 {
-	int i;
 	int element_num = 0;
 	char element[100] = { '\0' };
 	scanf_s("%d", &element_num);
 	fflush(stdin);
-	/*for (i = 1; i <= element_num; i++)
-	{
-		fflush(stdin);
-		scanf_s("%c", &element[i], sizeof(char));
-	}*/
 	scanf_s("%s", &element, 100);
 	nodeID = -1;
 	tree *new_tree = creatTree(element, element_num);
