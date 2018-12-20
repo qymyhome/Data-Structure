@@ -40,29 +40,34 @@ void ShowList(struct list seqlist)
 /*快速排序*/
 void QuickSort(int low, int high, struct list seqlist)
 {
-	int i, j, pivotkey;
-	i = low;
-	j = high;
-	pivotkey = seqlist.key[low];
-	while (low < high)
-	{
-		while ((seqlist.key[high] > pivotkey) && (high > 0))
-			high--;
-		if(seqlist.key[high]<pivotkey)
-			seqlist.key[low] = seqlist.key[high];
-		while ((seqlist.key[low] < pivotkey) && (low < seqlist.len))
-			low++;
-		if (seqlist.key[low] > pivotkey)
-			seqlist.key[high] = seqlist.key[low];
-	}
-	seqlist.key[low] = pivotkey;
-	if (first == 'T')
-	{
-		ShowList(seqlist);
-		first = 'F';
-	}
-	if (i < low - 1)
-		QuickSort(i, low - 1, seqlist);
-	if (high + 1 < j)
-		QuickSort(high + 1, j, seqlist);
+    int i, j, pivotkey, temp;
+    i = low;
+    j = high;
+    pivotkey = seqlist.key[low];
+    if (low >= high)
+        return;
+    while (i != j)
+    {
+        while (i < j && seqlist.key[j] >= pivotkey)
+            j--;
+        while (i < j && seqlist.key[i] <= pivotkey)
+            i++;
+        if (i < j)
+        {
+            temp = seqlist.key[i];
+            seqlist.key[i] = seqlist.key[j];
+            seqlist.key[j] = temp;
+        }
+    }
+    seqlist.key[low] = seqlist.key[i];
+    seqlist.key[i] = pivotkey;
+    if (first == 'T')
+    {
+        ShowList(seqlist);
+        first = 'F';
+    }
+    //if (i < low - 1)
+    QuickSort(low, i - 1, seqlist);
+    //if (high + 1 < j)
+    QuickSort(i + 1, high, seqlist);
 }
