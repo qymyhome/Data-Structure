@@ -27,8 +27,10 @@ int main(int argc, char *argv[])
 	scanf_s("%d", &new_list.len);
 	int n;
 	for (n = 1; n <= new_list.len; n++)
-		//scanf_s("%d", &new_list.element[n]);
-		new_list.element[n] = (rand() % 100) + 1;
+		scanf_s("%d", &new_list.element[n]);
+		//new_list.element[n] = (rand() % 100) + 1;
+	printf("\n");
+	show_list(&new_list);
 	quick_sort(1, new_list.len, &new_list);
 	show_list(&new_list);
 	return 0;
