@@ -83,7 +83,6 @@ ipch/
 *.cachefile
 *.VC.db
 *.VC.VC.opendb
-*.vcxproj
 *.filters
 *.user
 *.exe
